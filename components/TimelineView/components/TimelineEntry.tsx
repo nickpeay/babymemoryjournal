@@ -1,11 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Pressable } from 'react-native';
+import {ImageProps} from '../../../types/components';
 
-type ImageProps = {
-  image: string
-}
-
-export const TimelineEntry = ({image}: ImageProps) => {
+export function TimelineEntry ({image}: ImageProps, {navigation}) {
 
   return (
   <View style={{width: '100%', display: 'flex', flexDirection: 'row'}}>
