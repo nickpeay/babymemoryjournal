@@ -2,9 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Entry } from '../../types/components';
 
-export const EntryView = ({image, content, date, tag}: Entry) => {
+export function EntryView ({image, content, date, tag}: Entry, navigation) {
   return (
     <View style={styles.entry}>
+      <Text onPress={navigation.navigate('Timeline', {name: 'Timeline'})}>Back</Text>
       <Image source={{uri: image}}></Image>
       <Text>{date}</Text>
       <Text>{content}</Text>
@@ -15,7 +16,7 @@ export const EntryView = ({image, content, date, tag}: Entry) => {
 
 const styles = StyleSheet.create({
   entry: {
-    display: 'flex',
+    // display: 'flex',
     flex: 1,
   }
 })

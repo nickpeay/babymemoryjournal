@@ -1,8 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
 import { TimelineEntry } from './components/TimelineEntry';
 
-export const TimelineView = () => {
+export function TimelineView (props) {
+  const { navigate } = props.navigation
   return (
   <ScrollView style={styles.timeline}>
     <View style={styles.entry}>
@@ -14,8 +15,8 @@ export const TimelineView = () => {
 
 const styles = StyleSheet.create({
   timeline: {
-    display: 'flex',
-    flexDirection: 'column',
+    // display: 'flex',
+    // flexDirection: 'column',
     flex: 1,
   },
   entry: {
