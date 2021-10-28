@@ -1,27 +1,45 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import 'react-native-gesture-handler';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import { TimelineView } from './components/TimelineView';
-import { EntryView } from './components/EntryView';
+import { EntryView } from './components/EntryView'
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Baby Memory Journal</Text>
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Timeline">
+        <Stack.Navigator initialRouteName="TimelineView">
           <Stack.Screen 
-            name="Timeline"
+            name="TimelineView"
             component={TimelineView}
+            options={{
+              title: "Baby Memory Journal",
+              headerStyle: {
+                backgroundColor: '#003c1d',
+              },
+              headerTitleStyle: {
+                color: 'white'
+              }
+            }}
           />
           <Stack.Screen 
-            name="Entry View"
+            name="EntryView"
             component={EntryView}
+            options={{
+              title: "Journal Entry",
+              headerStyle: {
+                backgroundColor: '#003c1d',
+              },
+              headerTitleStyle: {
+                color: 'white'
+              }
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>
