@@ -5,7 +5,12 @@ import {Entry} from '../../../types/components';
 export function TimelineEntry ({image, navigation}: Entry) {
 
   return (
-  <View style={{width: '100%', display: 'flex', flexDirection: 'row'}}>
+  <Pressable style={({pressed}) => [
+    {
+      backgroundColor: pressed ? '#cecece' : 'white',
+    },
+    styles.entry,
+  ]} onPressOut={navigation.navigate('EntryView')}>
     <Button title="" onPress={navigation.navigate('EntryView', {screen: 'EntryView'})}>
     <Image style={styles.image} source={{uri: image}}></Image>
     <View style={styles.content}>
@@ -13,11 +18,17 @@ export function TimelineEntry ({image, navigation}: Entry) {
       <Text style={styles.text}>Text about the entry that may or may not include tags.</Text>
     </View>
     </Button>
-  </View>
+  </Pressable>
   )
 }
 
 const styles = StyleSheet.create({
+  entry: {
+    flexDirection: 'row',
+    width: '100%',
+    flex: 1,
+    margin: 0
+  },
   image: {
     flex: 1,
     marginRight: 12
