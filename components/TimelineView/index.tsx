@@ -2,12 +2,15 @@ import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
 import { TimelineEntry } from './components/TimelineEntry';
 
-export function TimelineView (props) {
+// TO DO
+// 1. Use FlatList instead of ScrollView
+
+export function TimelineView (props: any) {
   const { navigate } = props.navigation
   return (
   <ScrollView style={styles.timeline}>
     <View style={styles.entry}>
-      <TimelineEntry image={'http://placehold.jp/500x500.png'}></TimelineEntry>
+      <TimelineEntry image={'http://placehold.jp/500x500.png'} navigation={props.navigation}></TimelineEntry>
     </View>
   </ScrollView>
   )

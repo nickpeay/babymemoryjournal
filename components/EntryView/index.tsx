@@ -1,15 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { Entry } from '../../types/components';
+import { withNavigation } from 'react-navigation';
 
-export function EntryView ({image, content, date, tag}: Entry, navigation) {
+export function EntryView ({image, content, date, tag}: Entry, props: any) {
   return (
     <View style={styles.entry}>
-      <Text onPress={navigation.navigate('Timeline', {name: 'Timeline'})}>Back</Text>
-      <Image source={{uri: image}}></Image>
-      <Text>{date}</Text>
-      <Text>{content}</Text>
-      <Text>{tag}</Text>
+      <Image style={styles.image} resizeMode={'contain'} source={{uri: 'http://placehold.jp/500x500.png'}}></Image>
+      <View style={styles.content}>
+        <Text>Date: {date}</Text>
+        <Text>Content: {content}</Text>
+        <Text>Hashtags: {tag}</Text>
+      </View>
     </View>
   )
 }
@@ -17,6 +19,12 @@ export function EntryView ({image, content, date, tag}: Entry, navigation) {
 const styles = StyleSheet.create({
   entry: {
     // display: 'flex',
+    flex: 1,
+  },
+  image: {
+    flex: 1,
+  },
+  content: {
     flex: 1,
   }
 })
